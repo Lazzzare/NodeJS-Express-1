@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 
-var jsonParser = bodyParser.json();
+// var jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 const app = express();
