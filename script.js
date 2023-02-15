@@ -1,4 +1,8 @@
 import express from "express";
+import bodyParser from "body-parser";
+
+var jsonParser = bodyParser.json();
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 const app = express();
 const port = 3000;
@@ -69,7 +73,7 @@ app.get("/contact", (req, res) => {
   res.send(page);
 });
 
-app.post("/contact", (req, res) => {
+app.post("/contact", urlencodedParser, (req, res) => {
   console.log(req.body);
   res.send("message recieved");
 });
