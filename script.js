@@ -42,6 +42,38 @@ app.get("/about", (req, res) => {
   res.send(page);
 });
 
+app.get("/contact", (req, res) => {
+  console.log(req.query);
+
+  const page = `
+    <html>
+      <head>
+        <style>
+          form * {
+            display: block;
+            margin-bottom: 15px; 
+          }
+        </style>
+      </head>
+        <body>
+          <form method="POST" action="/contact">
+            <input type="text" name="Name" placeholder="Enter Name">
+            <input type="mail" name="Email" placeholder="Enter Email">
+            <textarea name="Message" placeholder="write something"></textarea>
+            <input type="submit" name="Submit">
+          </form>
+        </body>
+    </html>
+  `;
+
+  res.send(page);
+});
+
+app.post("/contact", (req, res) => {
+  console.log(req.body);
+  res.send("message recieved");
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
